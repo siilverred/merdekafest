@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road to DevFest Medan 2026, GDG Medan</title>
+  
+  <!-- Google Retro Fonts + Modern Readable Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    @font-face {
+      font-family: 'Komika Axis';
+      src: url('./KOMIKAX_.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    :root {
+      /* Retro Google Colors */
+      --df-sky: #4ba3e3;
+      --df-sky-deep: #1480b8;
+      --df-google-yellow: #FBBC04;
+      --df-google-red: #EA4335;
+      --df-google-blue: #4285F4;
+      --df-google-green: #34A853;
+      
+      /* Comic Paper Neutrals */
+      --df-bg-dots: #1e293b;
+      --df-paper: #FFFDF5;
+      --df-paper-warm: #FFF9E6;
+      --df-paper-card: #FFFFFF;
+      --df-ink: #0A0A0A;
+      --df-ink-secondary: #334155;
+      --df-muted: #5F6368;
+      
+      /* Neo-Brutalist Comic Shadows & Borders */
+      --df-border: 3px solid #000;
+      --df-border-sm: 2px solid #000;
+      --df-shadow: 4px 4px 0px #000;
+      --df-shadow-sm: 2.5px 2.5px 0px #000;
+      --df-shadow-lg: 6px 6px 0px #000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #242b35;
+      color: var(--df-ink);
+      line-height: 1.65;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.15) 1.2px, transparent 1.2px),
+        radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, #242b35 1.2px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+      padding-bottom: 60px;
+    }
+
+    /* Typography Classes */
+    .font-comic {
+      font-family: 'Komika Axis', 'Bangers', 'Plus Jakarta Sans', sans-serif;
+      font-weight: normal;
+      letter-spacing: 0.5px;
+    }
+
+    .font-pixel {
+      font-family: 'Press Start 2P', monospace;
+      letter-spacing: -0.5px;
+    }
+
+    .font-silk {
+      font-family: 'Silkscreen', cursive;
+    }
+
+    .font-vt {
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Sticky App Header Bar */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--df-sky);
+      border-bottom: var(--df-border);
+      padding: 10px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: var(--df-google-yellow);
+      border: var(--df-border);
+      padding: 7px 9px;
+      box-shadow: var(--df-shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .google-dots {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .g-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid #000;
+    }
+    .g-blue { background: var(--df-google-blue); }
+    .g-red { background: var(--df-google-red); }
+    .g-yellow { background: var(--df-google-yellow); }
+    .g-green { background: var(--df-google-green); }
+
+    .header-tagline {
+      font-family: 'Komika Axis', 'Bangers', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      color: #fff;
+      text-shadow: 1.5px 1.5px 0px #000;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .header-tagline { display: none; }
+      .app-header { padding: 8px 14px; }
+    }
+
+    /* Toolbar Action Buttons */
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-pixel {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.4px;
+      padding: 6px 13px;
+      background: var(--df-paper-warm);
+      border: var(--df-border-sm);
+      box-shadow: var(--df-shadow-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.1s ease;
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .btn-pixel:hover {
+      transform: translate(-1.5px, -1.5px);
+      box-shadow: 4px 4px 0px #000;
+    }
+
+    .btn-pixel:active {
+      transform: translate(1.5px, 1.5px);
+      box-shadow: 1px 1px 0px #000;
+    }
+
+    .btn-primary { background: var(--df-google-yellow); }
+    .btn-danger { background: var(--df-google-red); color: white; }
+    .btn-success { background: var(--df-google-green); color: white; }
+    .btn-info { background: var(--df-google-blue); color: white; }
+
+    .toggle-wrapper {
+      display: flex;
+      align-items: center;
+      background: #000;
+      padding: 4px 8px;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      gap: 8px;
+      color: #fff;
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.3px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 36px;
+      height: 18px;
+      background: #555;
+      cursor: pointer;
+      border-radius: 9px;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch.active {
+      background: var(--df-google-green);
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(18px);
+    }
+
+    /* Hero Section with Retro Sky & Clouds */
+    .hero-section {
+      background: linear-gradient(180deg, var(--df-sky) 0%, var(--df-sky-deep) 75%, #0e6390 100%);
+      border-bottom: var(--df-border);
+      padding: 42px 20px 48px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Tasteful Pixel Clouds */
+    .pixel-cloud {
+      position: absolute;
+      background: #fff;
+      border: 2.5px solid #000;
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+    .cloud-1 { top: 18px; left: 6%; width: 95px; height: 28px; }
+    .cloud-2 { top: 32px; right: 7%; width: 80px; height: 25px; }
+
+    .hero-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: #000;
+      border: 2.5px solid #000;
+      box-shadow: var(--df-shadow-sm);
+      padding: 4px 12px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      border-radius: 3px;
+    }
+
+    .hero-title-box {
+      background: var(--df-paper-warm);
+      border: var(--df-border);
+      box-shadow: var(--df-shadow-lg);
+      padding: 22px 30px;
+      display: inline-block;
+      margin-bottom: 16px;
+      max-width: 95%;
+      border-radius: 6px;
+    }
+
+    .hero-title {
+      font-family: 'Komika Axis', 'Bangers', 'Plus Jakarta Sans', sans-serif;
+      font-weight: normal;
+      font-size: 2.15rem;
+      color: var(--df-google-blue);
+      line-height: 1.2;
+      text-shadow: 1.5px 1.5px 0px #000;
+      margin-bottom: 6px;
+      letter-spacing: 0.8px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Silkscreen', 'Press Start 2P', cursive;
+      font-size: 1.05rem;
+      color: var(--df-google-red);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    /* Fast Summary Strip (Bento Strip) */
+    .hero-quick-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      max-width: 880px;
+      margin: 16px auto 0;
+      text-align: left;
+    }
+
+    .quick-pill-card {
+      background: #fff;
+      border: 2px solid #000;
+      box-shadow: 3px 3px 0px #000;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 4px;
+    }
+
+    .quick-pill-icon {
+      font-size: 1.3rem;
+      background: var(--df-paper-warm);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #000;
+      border-radius: 4px;
+      box-shadow: 1.5px 1.5px 0px #000;
+      flex-shrink: 0;
+    }
+
+    .quick-pill-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.58rem;
+      color: var(--df-muted);
+      line-height: 1.3;
+    }
+
+    .quick-pill-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #000;
+      line-height: 1.3;
+    }
+
+    /* Main Container Layout */
+    .doc-container {
+      max-width: 1180px;
+      margin: 30px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 880px) {
+      .doc-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      position: sticky;
+      top: 75px;
+      height: fit-content;
+    }
+
+    .nav-card {
+      background: var(--df-paper-warm);
+      border: var(--df-border);
+      box-shadow: var(--df-shadow);
+      padding: 16px;
+      border-radius: 6px;
+    }
+
+    .nav-title {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      color: #000;
+      border-bottom: 2.5px solid #000;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-link {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--df-ink);
+      text-decoration: none;
+      padding: 7px 10px;
+      background: #fff;
+      border: 2px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.1s ease;
+      line-height: 1.3;
+      border-radius: 4px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--df-google-yellow);
+      transform: translateX(3px);
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    .nav-sub-list {
+      list-style: none;
+      padding-left: 8px;
+      margin-top: 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .nav-sub-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #333;
+      text-decoration: none;
+      padding: 4px 8px;
+      display: block;
+      border-left: 2px solid #000;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.1s ease;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .nav-sub-link:hover {
+      background: #fff;
+      color: var(--df-google-blue);
+      border-left: 3px solid var(--df-google-blue);
+      padding-left: 10px;
+    }
+
+    .search-box {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 2px dashed #000;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 8px 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      border: 2px solid #000;
+      background: #fff;
+      outline: none;
+      border-radius: 4px;
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    .search-input:focus {
+      border-color: var(--df-google-blue);
+      box-shadow: 3px 3px 0px var(--df-google-blue);
+    }
+
+    /* Document Main Sheet */
+    .doc-content {
+      background: var(--df-paper);
+      border: var(--df-border);
+      box-shadow: var(--df-shadow-lg);
+      padding: 34px 38px;
+      position: relative;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 650px) {
+      .doc-content {
+        padding: 20px 14px;
+      }
+    }
+
+    /* Chapters & Section Dividers */
+    .chapter {
+      margin-bottom: 45px;
+      border-bottom: 3px dashed #000;
+      padding-bottom: 38px;
+    }
+
+    .chapter:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    /* Chapter Title in Komika Axis */
+    h1.chapter-title {
+      font-family: 'Komika Axis', 'Bangers', 'Plus Jakarta Sans', sans-serif;
+      font-weight: normal;
+      font-size: 1.55rem;
+      color: #000;
+      line-height: 1.35;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .chapter-tag {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.72rem;
+      background: var(--df-google-blue);
+      color: #fff;
+      padding: 4px 9px;
+      border: 2px solid #000;
+      box-shadow: 2px 2px 0px #000;
+      border-radius: 4px;
+      margin-top: 3px;
+      white-space: nowrap;
+    }
+
+    /* Section Titles in Komika Axis with Color Accents */
+    h2.section-title {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-weight: normal;
+      font-size: 1.25rem;
+      color: var(--df-google-red);
+      margin: 26px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.35;
+      letter-spacing: 0.4px;
+    }
+
+    h3.subsection-title {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-weight: normal;
+      font-size: 1.05rem;
+      color: var(--df-google-green);
+      margin: 18px 0 8px;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Highly Readable Body Text */
+    p.body-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.94rem;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      line-height: 1.68;
+    }
+
+    /* Retro Pixel Callout Box */
+    .callout-box {
+      background: var(--df-paper-warm);
+      border: var(--df-border);
+      box-shadow: var(--df-shadow);
+      padding: 16px 20px;
+      margin: 18px 0;
+      position: relative;
+      border-radius: 5px;
+    }
+
+    .callout-blue { background: #f0f6ff; border-left: 6px solid var(--df-google-blue); }
+    .callout-red { background: #fef2f2; border-left: 6px solid var(--df-google-red); }
+    .callout-green { background: #f0fdf4; border-left: 6px solid var(--df-google-green); }
+    .callout-yellow { background: var(--df-paper-warm); border-left: 6px solid var(--df-google-yellow); }
+
+    .callout-header {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.4px;
+    }
+
+    .callout-blue .callout-header { color: var(--df-google-blue); }
+    .callout-red .callout-header { color: var(--df-google-red); }
+    .callout-green .callout-header { color: var(--df-google-green); }
+    .callout-yellow .callout-header { color: #b45309; }
+
+    /* Pixel Tables - Crisp and High Contrast */
+    .pixel-table-wrapper {
+      overflow-x: auto;
+      margin: 18px 0;
+      border: var(--df-border);
+      box-shadow: var(--df-shadow);
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    table.pixel-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    table.pixel-table th {
+      background: var(--df-google-blue);
+      color: #fff;
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-weight: normal;
+      font-size: 0.92rem;
+      letter-spacing: 0.4px;
+      padding: 11px 14px;
+      border: 1.5px solid #000;
+      text-align: left;
+    }
+
+    table.pixel-table td {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      padding: 10px 14px;
+      border: 1.5px solid #000;
+      color: #111;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    table.pixel-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Lists with Retro Arrow Bullet */
+    ul.pixel-list {
+      list-style: none;
+      margin: 12px 0;
+      padding-left: 0;
+    }
+
+    ul.pixel-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    ul.pixel-list li::before {
+      content: '▶';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      color: var(--df-google-red);
+      font-size: 0.72rem;
+    }
+
+    /* 3 Pillars Cards */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .pillar-card {
+      background: #fff;
+      border: var(--df-border);
+      box-shadow: var(--df-shadow);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.12s ease;
+      position: relative;
+      border-radius: 5px;
+    }
+
+    .pillar-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--df-shadow-lg);
+    }
+
+    .pillar-card.active-august {
+      background: var(--df-paper-warm);
+      border-color: #000;
+      cursor: pointer;
+    }
+
+    .pillar-badge {
+      display: inline-block;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      padding: 4px 8px;
+      border: 1.5px solid #000;
+      margin-bottom: 10px;
+      width: fit-content;
+      border-radius: 3px;
+      box-shadow: 1.5px 1.5px 0px #000;
+    }
+
+    .badge-red { background: var(--df-google-red); color: #fff; }
+    .badge-blue { background: var(--df-google-blue); color: #fff; }
+    .badge-yellow { background: var(--df-google-yellow); color: #000; }
+    .badge-green { background: var(--df-google-green); color: #fff; }
+
+    .pillar-title {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.12rem;
+      margin-bottom: 6px;
+      color: #000;
+    }
+
+    .pillar-desc {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    /* Rundown Timeline in Retro Pixel Theme */
+    .timeline-container {
+      position: relative;
+      margin: 22px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .timeline-block {
+      display: flex;
+      gap: 14px;
+      position: relative;
+    }
+
+    @media (max-width: 650px) {
+      .timeline-block {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    .timeline-time-badge {
+      background: #000;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 9px 14px;
+      border: 2.5px solid #000;
+      box-shadow: 3px 3px 0px var(--df-google-blue);
+      white-space: nowrap;
+      height: fit-content;
+      min-width: 140px;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .timeline-content-card {
+      background: #fff;
+      border: var(--df-border);
+      box-shadow: var(--df-shadow-sm);
+      padding: 16px 20px;
+      flex: 1;
+      border-radius: 5px;
+    }
+
+    .timeline-title {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      color: #000;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .retro-pill {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border: 1.5px solid #000;
+      box-shadow: 1.5px 1.5px 0px #000;
+      background: var(--df-paper-warm);
+      border-radius: 3px;
+    }
+
+    /* Interactive Parallel Zone Rundown */
+    .zone-interactive-container {
+      margin-top: 14px;
+      border: var(--df-border);
+      background: #faf8f0;
+      padding: 16px;
+      box-shadow: var(--df-shadow);
+      border-radius: 5px;
+    }
+
+    .zone-tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .zone-tab-btn {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border: var(--df-border);
+      box-shadow: 3px 3px 0px #000;
+      cursor: pointer;
+      background: #fff;
+      color: #000;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.1s ease;
+      user-select: none;
+      border-radius: 4px;
+    }
+
+    .zone-tab-btn:hover {
+      transform: translate(-1.5px, -1.5px);
+      box-shadow: 4.5px 4.5px 0px #000;
+    }
+
+    .zone-tab-btn:active,
+    .zone-tab-btn.active {
+      transform: translate(1.5px, 1.5px);
+      box-shadow: 1px 1px 0px #000;
+      font-weight: bold;
+    }
+
+    .zone-tab-btn[data-zone="tarik-data"].active,
+    .zone-tab-btn[data-zone="zona-a"].active {
+      background: var(--df-google-blue);
+      color: #fff;
+    }
+
+    .zone-tab-btn[data-zone="balap-typing"].active,
+    .zone-tab-btn[data-zone="zona-b"].active {
+      background: var(--df-google-red);
+      color: #fff;
+    }
+
+    .zone-tab-btn[data-zone="vibes-code"].active,
+    .zone-tab-btn[data-zone="zona-c"].active {
+      background: var(--df-google-green);
+      color: #fff;
+    }
+
+    .zone-pane {
+      display: none;
+      animation: fadeInZone 0.18s ease-out;
+    }
+
+    .zone-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeInZone {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .zone-meta-banner {
+      border: 2px solid #000;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      box-shadow: 2px 2px 0px #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-radius: 4px;
+    }
+
+    .zone-timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .zone-timeline-item {
+      background: #fff;
+      border: 2px solid #000;
+      padding: 12px 16px;
+      box-shadow: 2px 2px 0px #000;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 600px) {
+      .zone-timeline-item {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    .zone-time-tag {
+      background: #000;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 5px 10px;
+      border: 1.5px solid #000;
+      white-space: nowrap;
+      text-align: center;
+      min-width: 125px;
+      border-radius: 3px;
+    }
+
+    .zone-time-body {
+      flex: 1;
+    }
+
+    .zone-phase-heading {
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #000;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .zone-phase-desc {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.87rem;
+      color: #333;
+      line-height: 1.55;
+    }
+
+    /* Competition Card Box (Juknis Section) */
+    .competition-card-container {
+      background: #fff;
+      border: var(--df-border);
+      box-shadow: var(--df-shadow);
+      padding: 24px;
+      margin: 24px 0;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    .competition-header-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed #cbd5e1;
+      flex-wrap: wrap;
+    }
+
+    /* Modal Overlay & Dialog */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--df-paper-warm);
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0px #000;
+      max-width: 740px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      position: relative;
+      border-radius: 8px;
+      animation: modalPop 0.2s ease-out;
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--df-google-red);
+      color: #fff;
+      border: 2px solid #000;
+      width: 32px;
+      height: 32px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0px #000;
+      border-radius: 4px;
+    }
+
+    .modal-close-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px #000;
+    }
+
+    /* Editable Highlight */
+    [contenteditable="true"] {
+      outline: 2px dashed var(--df-google-blue) !important;
+      background-color: rgba(66, 133, 244, 0.08) !important;
+      padding: 2px 4px;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+
+    [contenteditable="true"]:focus {
+      outline: 3px solid var(--df-google-red) !important;
+      background-color: rgba(234, 67, 53, 0.12) !important;
+    }
+
+    .edit-banner-notice {
+      background: var(--df-google-yellow);
+      border: var(--df-border);
+      padding: 10px 16px;
+      margin-bottom: 20px;
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 5px;
+      box-shadow: 3px 3px 0px #000;
+    }
+
+    .edit-banner-notice.show {
+      display: flex;
+    }
+
+    /* Footer */
+    .doc-footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: var(--df-border);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      color: var(--df-muted);
+      line-height: 1.6;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--df-google-green);
+      color: white;
+      border: var(--df-border);
+      box-shadow: var(--df-shadow);
+      padding: 12px 20px;
+      font-family: 'Komika Axis', 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.4px;
+      z-index: 1000;
+      display: none;
+      border-radius: 5px;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .app-header, .sidebar, .edit-banner-notice, .toast, .modal-overlay, .zone-tabs-nav {
+        display: none !important;
+      }
+      .zone-pane {
+        display: block !important;
+        margin-bottom: 20px !important;
+      }
+      body {
+        background: #fff !important;
+      }
+      .doc-container {
+        display: block !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .doc-content {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      .chapter {
+        page-break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top App Header Bar -->
+  <header class="app-header">
+    <div class="header-title">
+      <span class="logo-badge" title="GDG Medan">
+        <span class="google-dots">
+          <span class="g-dot g-blue"></span>
+          <span class="g-dot g-red"></span>
+          <span class="g-dot g-yellow"></span>
+          <span class="g-dot g-green"></span>
+        </span>
+      </span>
+      <img src="./logo-road-to-devfest.png" alt="Road to DevFest" style="height: 44px; width: auto; image-rendering: pixelated; filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));" />
+    </div>
+
+  </header>
+
+  <!-- Hero Section with Retro Sky & Clouds -->
+  <section class="hero-section">
+    <div class="pixel-cloud cloud-1"></div>
+    <div class="pixel-cloud cloud-2"></div>
+    <div class="hero-content">
+      
+      <div class="hero-pill-badge">
+        🚀 GOOGLE DEVELOPER GROUP MEDAN
+      </div>
+      
+      <br>
+
+      <div class="hero-title-box">
+        <h1 class="hero-title">ROAD TO DEVFEST 2026</h1>
+        <p class="hero-subtitle">(Agustus 2026 · Merdeka Coding Fest)</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <div class="doc-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="nav-card">
+        <div class="nav-title">
+          <span>📌 DAFTAR ISI</span>
+          <span style="font-family: 'Press Start 2P', monospace; font-size: 0.62rem; color: #555;">5 BAGIAN</span>
+        </div>
+        
+        <ul class="nav-list">
+          <li>
+            <a href="#overview" class="nav-link">
+              <span>Overview &amp; Roadmap</span>
+              <span style="font-size: 0.72rem; color: #555;">01</span>
+            </a>
+          </li>
+          <li>
+            <a href="#rundown" class="nav-link" style="background: var(--df-paper-warm); font-weight: bold;">
+              <span>⏱️ Rundown 29 Agustus</span>
+              <span style="font-size: 0.72rem; color: var(--df-google-red); font-weight: bold;">02</span>
+            </a>
+          </li>
+          <li>
+            <a href="#agustus" class="nav-link">
+              <span>Lomba 29 Agustus</span>
+              <span style="font-size: 0.72rem; color: #555;">03</span>
+            </a>
+            <div class="nav-sub-list">
+              <a href="#lomba1" class="nav-sub-link">📊 #1 Tarik Data (BigQuery)</a>
+              <a href="#lomba2" class="nav-sub-link">⌨️ #2 Balap Typing</a>
+              <a href="#lomba3" class="nav-sub-link">⚡ #3 Estafet VibesCode</a>
+            </div>
+          </li>
+          <li>
+            <a href="#inkubasi" class="nav-link">
+              <span>Program Inkubasi</span>
+              <span style="font-size: 0.72rem; color: #555;">04</span>
+            </a>
+          </li>
+          <li>
+            <a href="#regulasi" class="nav-link">
+              <span>Regulasi &amp; Integritas</span>
+              <span style="font-size: 0.72rem; color: #555;">05</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="search-box">
+          <div class="nav-title" style="margin-bottom: 6px; border-bottom: none; padding-bottom: 0;">
+            <span>🔍 CARI</span>
+          </div>
+          <input type="text" class="search-input" id="searchInput" placeholder="Cari..." onkeyup="searchContent()">
+        </div>
+      </div>
+    </aside>
+
+    <!-- Document Content Area -->
+    <main class="doc-content">
+
+      <!-- Top Note Callout -->
+      <div class="callout-box callout-yellow" style="margin-top: 0; margin-bottom: 28px;">
+        <div class="callout-header">📌 PANDUAN RESMI ACARA &amp; KOMPETISI</div>
+        <p class="body-text" style="font-size: 0.91rem; margin-bottom: 0;">Dokumen ini memuat seluruh panduan teknis dan informasi resmi untuk seluruh cabang perlombaan Road to DevFest Medan 2026. Setiap peserta &amp; ketua tim <strong>WAJIB</strong> membaca, memahami, dan mematuhi seluruh aturan teknis, mekanisme pendaftaran, jadwal pelaksanaan, serta <strong>Kode Etik Integrity Pact</strong> yang tercantum di dalam dokumen ini.</p>
+      </div>
+
+      <!-- CHAPTER 1: OVERVIEW & ROADMAP -->
+      <section class="chapter" id="overview">
+        <h1 class="chapter-title">
+          <span class="chapter-tag">01</span>
+          <span>OVERVIEW &amp; ROADMAP ROAD TO DEVFEST MEDAN 2026</span>
+        </h1>
+        
+        <p class="body-text">Road to DevFest Medan 2026 adalah rangkaian program kompetisi teknologi, inovasi, dan karya ilmiah yang diselenggarakan oleh <strong>Google Developer Group (GDG) Medan</strong> dari bulan Agustus hingga puncaknya di <strong>DevFest Medan 2026</strong> pada bulan November 2026. Program ini dirancang untuk membina talenta digital lokal, memacu semangat kolaborasi, serta memberikan panggung bagi para developer, data enthusiast, UI/UX designer, dan peneliti muda di Kota Medan dan sekitarnya.</p>
+
+        <!-- 3 Pilar Rangkaian Program -->
+        <h2 class="section-title">3 Pilar Rangkaian Road to DevFest</h2>
+        <p class="body-text">Rangkaian Road to DevFest Medan 2026 terbagi dalam 3 pilar kegiatan strategis:</p>
+
+        <div class="pillars-grid">
+          <!-- Pilar 1: Agustus -->
+          <div class="pillar-card active-august" onclick="openAugustModal()" title="Klik untuk melihat detail kegiatan 29 Agustus">
+            <div>
+              <span class="pillar-badge badge-red">SABTU, 29 AGUSTUS 2026</span>
+              <h3 class="pillar-title">1. Merdeka Coding Fest</h3>
+              <p class="pillar-desc">1-Day Onsite Event merayakan HUT RI ke-81. Menampilkan 3 cabang lomba paralel: Tarik Data (BigQuery), Balap Typing, dan Estafet VibesCode.</p>
+            </div>
+            <button class="btn-pixel btn-primary" style="font-size: 0.86rem; padding: 6px 14px; width: fit-content;" onclick="event.stopPropagation(); openAugustModal();">
+              Detail ➔
+            </button>
+          </div>
+
+          <!-- Pilar 2: Inkubasi -->
+          <div class="pillar-card">
+            <div>
+              <span class="pillar-badge badge-blue">SEPTEMBER – OKTOBER 2026</span>
+              <h3 class="pillar-title">2. Program Inkubasi</h3>
+              <p class="pillar-desc">Program akselerasi talenta digital &amp; calon founder startup. Mentoring ideation, MVP vibecoding, validasi pasar, dan traksi pengguna riil.</p>
+            </div>
+            <a href="#inkubasi" class="btn-pixel btn-info" style="font-size: 0.86rem; padding: 6px 14px; width: fit-content; text-decoration: none;">
+              Detail ➔
+            </a>
+          </div>
+
+          <!-- Pilar 3: Kegiatan Lainnya -->
+          <div class="pillar-card">
+            <div>
+              <span class="pillar-badge badge-yellow">NOVEMBER 2026</span>
+              <h3 class="pillar-title">3. Kegiatan Lainnya</h3>
+              <p class="pillar-desc">Workshop teknis, technical session, community meetup, CFA paper presentation, hingga puncak panggung <strong>DevFest Medan 2026</strong>.</p>
+            </div>
+            <span class="font-silk" style="font-size: 0.75rem; color: #555; font-weight: bold; margin-top: 6px; display: inline-block;">
+              🚀 COMING SOON
+            </span>
+          </div>
+        </div>
+
+        <h2 class="section-title">Roadmap Rangkaian Acara</h2>
+        <p class="body-text">Rangkaian kegiatan Road to DevFest Medan 2026:</p>
+
+        <div class="pixel-table-wrapper">
+          <table class="pixel-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Bulan</th>
+                <th style="width: 38%;">Agenda &amp; Kegiatan</th>
+                <th>Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: #FFFDE7;">
+                <td><strong>Agustus 2026</strong><br><span style="font-size: 0.82rem; color: var(--df-google-red); font-weight: bold;">(29 Agustus 2026)</span></td>
+                <td><strong>Merdeka Coding Fest:</strong><br>• Tarik Data (BigQuery)<br>• Balap Typing<br>• Estafet VibesCode</td>
+                <td>Kompetisi onsite 1 hari bertema Kemerdekaan RI ke-81 dengan fasilitas Lunch Break untuk seluruh peserta.</td>
+              </tr>
+              <tr>
+                <td><strong>September – Oktober 2026</strong></td>
+                <td><strong>Program Inkubasi &amp; Workshop:</strong><br>• Mentoring Ideation &amp; MVP<br>• Workshop AI &amp; Cloud</td>
+                <td>Program pembinaan intensif pengembangan produk digital dan validasi pasar.</td>
+              </tr>
+              <tr>
+                <td><strong>November 2026</strong></td>
+                <td><strong>DevFest Medan 2026:</strong><br>• Demo Day &amp; Showcase<br>• Grand Awarding</td>
+                <td>Puncak konferensi tahunan developer GDG Medan dan penganugerahan pemenang.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CHAPTER 2: RUNDOWN & SUSUNAN ACARA 29 AGUSTUS 2026 -->
+      <section class="chapter" id="rundown" style="scroll-margin-top: 80px;">
+        <h1 class="chapter-title">
+          <span class="chapter-tag" style="background: var(--df-google-red);">02</span>
+          <span>RUNDOWN &amp; SUSUNAN ACARA MERDEKA CODING FEST<br><span style="font-size: 1.15rem; color: var(--df-google-red);">SABTU, 29 AGUSTUS 2026</span></span>
+        </h1>
+        
+        <p class="body-text">Rangkaian acara <strong>Merdeka Coding Fest</strong> dirancang seru, padat, dan interaktif, lengkap dengan fasilitas <strong>Lunch Break &amp; Networking</strong> untuk seluruh peserta.</p>
+
+        <!-- Callout Box Summary -->
+        <div class="callout-box callout-blue">
+          <div class="callout-header">⚡ HIGHLIGHT PELAKSANAAN 29 AGUSTUS</div>
+          <ul class="pixel-list">
+            <li><strong>Format Acara:</strong> 1-Day Onsite Event dengan 3 cabang perlombaan yang berlangsung secara <strong>PARALEL</strong> (Tarik Data, Balap Typing, dan Estafet VibesCode).</li>
+            <li><strong>Urutan Acara Utama:</strong> Open Registrasi ➔ Pembukaan &amp; Indonesia Raya ➔ Sambutan Lead &amp; Partner ➔ Pelaksanaan 3 Lomba Paralel ➔ <strong>ISHOMA &amp; Lunch Break</strong> ➔ Pleno Penutupan &amp; Pengumuman Pemenang.</li>
+            <li><strong>Konsumsi Peserta:</strong> Disediakan fasilitas <strong>Lunch Break</strong> untuk semua peserta, mentor, dan juri.</li>
+          </ul>
+        </div>
+
+        <!-- Alur Rangkaian Acara Lengkap -->
+        <h2 class="section-title">Susunan Acara (29 Agustus 2026)</h2>
+        
+        <div class="timeline-container">
+          
+          <!-- Block 1: Open Regis -->
+          <div class="timeline-block">
+            <div class="timeline-time-badge">08.30 – 09.00</div>
+            <div class="timeline-content-card">
+              <div class="timeline-title">
+                <span>Open Registration</span>
+                <span class="retro-pill" style="background: #E0F2FE;">Check-In</span>
+              </div>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 0;">Check-in peserta dan konfirmasi kehadiran tim di venue.</p>
+            </div>
+          </div>
+
+          <!-- Block 2: Pembukaan -->
+          <div class="timeline-block">
+            <div class="timeline-time-badge">09.00 – 09.15</div>
+            <div class="timeline-content-card">
+              <div class="timeline-title">
+                <span>Pembukaan Resmi oleh MC, Lagu Kebangsaan &amp; Doa</span>
+                <span class="retro-pill" style="background: #FEE2E2;">Opening</span>
+              </div>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• Opening greeting oleh Master of Ceremony (MC).</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 0;">• Menyanyikan bersama lagu kebangsaan <strong>Indonesia Raya</strong> dalam rangka menyambut HUT RI ke-81, dilanjutkan doa pembuka.</p>
+            </div>
+          </div>
+
+          <!-- Block 3: Sambutan -->
+          <div class="timeline-block">
+            <div class="timeline-time-badge">09.15 – 09.30</div>
+            <div class="timeline-content-card">
+              <div class="timeline-title">
+                <span>Sambutan-Sambutan &amp; Penjelasan Aturan Main &amp; Integritas</span>
+                <span class="retro-pill" style="background: #FEF3C7;">Pengarahan</span>
+              </div>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• Kata sambutan dari <strong>Community Lead GDG Medan</strong>.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• Kata sambutan perwakilan <strong>Host Venue &amp; Partner</strong>.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 0;">• Pembacaan ringkas aturan main, pakta integritas kompetisi, dan mobilisasi peserta menuju ruangan / area lomba masing-masing.</p>
+            </div>
+          </div>
+
+          <!-- Block 4: 3 Lomba Paralel -->
+          <div class="timeline-block">
+            <div class="timeline-time-badge" style="background: var(--df-google-blue); color: #fff; box-shadow: 3px 3px 0px #000;">09.30 – 12.30</div>
+            <div class="timeline-content-card" style="border-color: var(--df-google-blue);">
+              <div class="timeline-title" style="color: var(--df-google-blue);">
+                <span>Pelaksanaan 3 Lomba Berjalan Secara PARALEL</span>
+                <span class="retro-pill" style="background: #DBEAFE; color: #1E40AF;">Kompetisi Paralel</span>
+              </div>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 6px;">Perlombaan dilaksanakan serentak untuk 3 cabang lomba. <strong>Pilih dan klik tab lomba di bawah</strong> untuk melihat rundown tahapan &amp; mekanisme lomba masing-masing:</p>
+
+              <!-- Interactive Tabs & Rundown Component -->
+              <div class="zone-interactive-container">
+                
+                <!-- Tab Navigation Buttons -->
+                <div class="zone-tabs-nav">
+                  <button type="button" class="zone-tab-btn active" data-zone="tarik-data" onclick="switchZone('tarik-data')">
+                    📊 Tarik Data (BigQuery)
+                  </button>
+                  <button type="button" class="zone-tab-btn" data-zone="balap-typing" onclick="switchZone('balap-typing')">
+                    ⌨️ Balap Typing
+                  </button>
+                  <button type="button" class="zone-tab-btn" data-zone="vibes-code" onclick="switchZone('vibes-code')">
+                    ⚡ Estafet VibesCode
+                  </button>
+                </div>
+
+                <!-- Pane: Tarik Data -->
+                <div class="zone-pane active" id="pane-tarik-data">
+                  <div class="zone-meta-banner" style="background: #EBF3FE; border-color: var(--df-google-blue);">
+                    <div>
+                      <strong class="font-comic" style="font-size: 1.05rem; color: var(--df-google-blue);">📊 TARIK DATA (BIGQUERY NO-AI)</strong>
+                      <div style="font-size: 0.84rem; color: #444; margin-top: 2px;">Format: <strong>Tim 2 Orang</strong> • Platform: <strong>BigQuery Studio + Looker Studio</strong></div>
+                    </div>
+                    <span class="retro-pill" style="background: var(--df-google-blue); color: #fff;">BigQuery + Looker Studio</span>
+                  </div>
+
+                  <div class="zone-timeline-list">
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: var(--df-google-blue);">09.30 – 10.15</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 1: Kualifikasi &amp; Query Optimization</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #DBEAFE;">45 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Pengerjaan dataset query challenge di BigQuery Studio. Peserta mengeksekusi query SQL optimal untuk menjawab studi kasus bisnis. Dewan juri memantau eksekusi, volume bytes processed, &amp; efisiensi secara transparan via Cloud Logging. <em style="color: var(--df-google-red); font-weight: bold;">Strict No AI</em>.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: #1E40AF;">10.15 – 10.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 2: Seleksi Awal &amp; Penjurian Efisiensi</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #E0E7FF;">15 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Penjurian awal query efisiensi oleh tim juri BigQuery &amp; penentuan <strong>5 Tim Terbaik (Top 5)</strong> dengan performa komputasi dan ketepatan data tertinggi untuk maju ke babak presentasi.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: var(--df-google-blue);">10.30 – 11.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 3: Bracket &amp; Persiapan Insight Looker Studio</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #DBEAFE;">60 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Pengumuman Top 5. Tim menyusun dashboard visualisasi insight bisnis di Looker Studio serta menyiapkan deck presentasi singkat (5–7 menit) untuk dipresentasikan di depan juri.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: #1E40AF;">11.30 – 12.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 4: Final Onsite Pitching &amp; Q&amp;A Juri</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #FEF3C7; color: #000;">Final Stage</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Presentasi insight bisnis Top 5 langsung di hadapan dewan juri (5–7 menit pitching + 3 menit tanya-jawab per tim) untuk menentukan Juara 1, 2, dan 3.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                    <a href="#lomba1" class="btn-pixel btn-primary" style="font-size: 0.84rem; padding: 6px 14px;">
+                      📖 Buka Detail Juknis &amp; Rubrik Tarik Data ➔
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Pane: Balap Typing -->
+                <div class="zone-pane" id="pane-balap-typing">
+                  <div class="zone-meta-banner" style="background: #FEE2E2; border-color: var(--df-google-red);">
+                    <div>
+                      <strong class="font-comic" style="font-size: 1.05rem; color: var(--df-google-red);">⌨️ BALAP TYPING (SPEED &amp; PRECISION)</strong>
+                      <div style="font-size: 0.84rem; color: #444; margin-top: 2px;">Format: <strong>Individu (Single Player)</strong> • Platform: <strong>Web Typing Engine</strong></div>
+                    </div>
+                    <span class="retro-pill" style="background: var(--df-google-red); color: #fff;">Speed + Syntax Accuracy</span>
+                  </div>
+
+                  <div class="zone-timeline-list">
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: var(--df-google-red);">09.30 – 10.15</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 1: Kualifikasi 3 Stage (Indonesia, English, Code)</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #FEE2E2;">45 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Pengerjaan 3 stage tantangan berurutan: Stage 1 (Bahasa Indonesia, 120 detik), Stage 2 (English Technical, 120 detik), dan Stage 3 (Code Syntax Python/JS, 180 detik) pada typing platform khusus.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: #991B1B;">10.15 – 10.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 2: Rekapitulasi Skor Kuadrat Akurasi</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #FEE2E2;">15 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Perhitungan skor kualifikasi menggunakan rumus akurasi kuadrat: <code>Skor = WPM × (Akurasi%)²</code>. Penentuan &amp; pengumuman <strong>8 Peserta Terbaik (Top 8)</strong> yang lolos ke babak eliminasi.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: var(--df-google-red);">10.30 – 11.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 3: Bracket Playoff &amp; Live Head-to-Head Top 8</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #FEE2E2;">60 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Penyusunan bracket eliminasi sistem gugur 1v1 (Quarter-finals). Pertarungan Live Head-to-Head Top 8 ditampilkan langsung di layar proyektor panggung via OBS Studio dengan penonton &amp; audio caster.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: #991B1B;">11.30 – 12.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 4: Live Battle Semifinal &amp; Grand Final 1v1</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #FEF3C7; color: #000;">Final Stage</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Live Battle Semifinal dan Grand Final Head-to-Head 1v1 (Best of 3 Rounds - Kombinasi Prosa Cepat &amp; Syntax Code) untuk menentukan Juara 1, 2, dan 3.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                    <a href="#lomba2" class="btn-pixel btn-danger" style="font-size: 0.84rem; padding: 6px 14px; background: var(--df-google-red);">
+                      📖 Buka Detail Juknis &amp; Rules Balap Typing ➔
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Pane: Estafet VibesCode -->
+                <div class="zone-pane" id="pane-vibes-code">
+                  <div class="zone-meta-banner" style="background: #DCFCE7; border-color: var(--df-google-green);">
+                    <div>
+                      <strong class="font-comic" style="font-size: 1.05rem; color: var(--df-google-green);">⚡ ESTAFET VIBESCODE (GEMINI RELAY)</strong>
+                      <div style="font-size: 0.84rem; color: #444; margin-top: 2px;">Format: <strong>Tim 4–5 Orang</strong> • Platform: <strong>Google AI Studio + Web Prototype</strong></div>
+                    </div>
+                    <span class="retro-pill" style="background: var(--df-google-green); color: #fff;">Google AI Studio + Web Prototype</span>
+                  </div>
+
+                  <div class="zone-timeline-list">
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: var(--df-google-green);">09.30 – 10.15</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 1: Kualifikasi &amp; Relay Prompting Awal</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #DCFCE7;">45 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Relay prompting tim berjalan di Google AI Studio. Anggota tim bergantian setiap 1 menit sekali untuk melakukan prompting, membangun instruksi, dan menyusun prototype aplikasi web secara estafet.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: #166534;">10.15 – 10.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 2: Relay Lanjutan &amp; Audit Trail Snapshot</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #DCFCE7;">15 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Relay beralih ke Anggota 3. Setiap pergantian giliran wajib mencatat snapshot prompt &amp; prompt history di Google AI Studio sebagai bukti audit trail integritas kolaborasi tim.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: var(--df-google-green);">10.30 – 11.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 3: Final Relay, Integrasi UI &amp; Deployment</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #DCFCE7;">60 Menit</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Penyelesaian giliran Anggota 4 &amp; 5, penyempurnaan UI/UX, integrasi Gemini API, handoff final, dan submit URL hasil web prototype aplikasi ke sistem panitia.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="zone-timeline-item">
+                      <div class="zone-time-tag" style="background: #166534;">11.30 – 12.30</div>
+                      <div class="zone-time-body">
+                        <div class="zone-phase-heading">
+                          <span>Fase 4: Penjurian Komprehensif &amp; Live Demo</span>
+                          <span class="retro-pill" style="font-size: 0.7rem; background: #FEF3C7; color: #000;">Final Stage</span>
+                        </div>
+                        <div class="zone-phase-desc">
+                          Pengujian live prototype oleh dewan juri (penilaian Kesesuaian Brief, Desain UI/UX, Prompting Chaining di AI Studio, dan Audit Trail Teamwork) untuk menentukan Juara 1, 2, dan 3.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                    <a href="#lomba3" class="btn-pixel btn-success" style="font-size: 0.84rem; padding: 6px 14px;">
+                      📖 Buka Detail Juknis &amp; Rubrik Estafet VibesCode ➔
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+              <!-- End of Interactive Tabs Component -->
+
+            </div>
+          </div>
+
+          <!-- Block 5: ISHOMA & Lunch Break -->
+          <div class="timeline-block">
+            <div class="timeline-time-badge" style="background: var(--df-google-green); color: #fff; box-shadow: 3px 3px 0px #000;">12.30 – 13.30</div>
+            <div class="timeline-content-card" style="background: #F1F8E9; border-color: var(--df-google-green);">
+              <div class="timeline-title" style="color: var(--df-google-green);">
+                <span>ISHOMA &amp; Lunch Break (Makan Siang &amp; Networking)</span>
+                <span class="retro-pill" style="background: var(--df-google-green); color: #fff;">🍱 Lunch Provided</span>
+              </div>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• <strong>Istirahat &amp; Sholat Dzuhur</strong> berjamaah bagi yang menunaikan.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• <strong>Lunch Break:</strong> Seluruh peserta, mentor, juri, dan panitia menikmati makan siang bersama yang telah disiapkan panitia GDG Medan.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 0;">• Sesi networking santai antar developer, saling bertukar kontak &amp; pengalaman.</p>
+            </div>
+          </div>
+
+          <!-- Block 6: Pleno Penutupan -->
+          <div class="timeline-block">
+            <div class="timeline-time-badge" style="background: var(--df-google-yellow); color: #000; box-shadow: 3px 3px 0px #000;">13.30 – 14.00</div>
+            <div class="timeline-content-card" style="background: #FFFDE7; border-color: #000;">
+              <div class="timeline-title">
+                <span>Pleno Penutupan, Grand Awarding &amp; Wrap-Up</span>
+                <span class="retro-pill" style="background: var(--df-google-yellow); color: #000;">🏆 Awarding &amp; Closing</span>
+              </div>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• Pengumuman Pemenang Juara 1, 2, dan 3 untuk ketiga cabang perlombaan.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• Penyerahan hadiah kepada para pemenang.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 4px;">• Sosialisasi Program Lanjutan: <strong>Program Inkubasi</strong> &amp; agenda Road to DevFest Coming Soon.</p>
+              <p class="body-text" style="font-size: 0.88rem; margin-bottom: 0;">• Sesi Foto Bersama (Closing Photo Session) &amp; Penutupan Acara.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CHAPTER 3: JUKNIS LOMBA BULAN AGUSTUS -->
+      <section class="chapter" id="agustus">
+        <h1 class="chapter-title">
+          <span class="chapter-tag" style="background: var(--df-google-green);">03</span>
+          <span>JUKNIS LOMBA BULAN AGUSTUS<br><span style="font-size: 1.15rem; color: var(--df-google-blue);">MERDEKA CODING FEST</span></span>
+        </h1>
+        
+        <p class="body-text">Merdeka Coding Fest dilaksanakan pada <strong>Sabtu minggu ke-4 Agustus 2026 (29 Agustus 2026)</strong> dengan semangat merayakan HUT Kemerdekaan RI ke-81. Terdiri dari 3 lomba cepat, seru, dan interaktif yang diselenggarakan secara paralel.</p>
+
+        <!-- Lomba #1 Card Container -->
+        <div class="competition-card-container" id="lomba1" style="border-left: 6px solid var(--df-google-blue); scroll-margin-top: 80px;">
+          <div class="competition-header-strip">
+            <div>
+              <span class="pillar-badge badge-blue">LOMBA #1 · TARIK DATA</span>
+              <h2 class="section-title" style="color: var(--df-google-blue); margin-top: 4px; margin-bottom: 4px;">
+                Tarik Data: Query Performance &amp; Insight Data (BigQuery - Tanpa AI)
+              </h2>
+              <p class="body-text" style="margin-bottom: 0; font-size: 0.9rem;">
+                Lomba ini menguji kemampuan analisis data, penyusunan query SQL yang efisien, serta pengambilan insight bisnis menggunakan Google BigQuery tanpa bantuan fitur AI.
+              </p>
+            </div>
+            <span class="retro-pill" style="background: var(--df-google-blue); color: #fff; padding: 4px 10px; font-size: 0.8rem;">Tim 2 Orang</span>
+          </div>
+
+          <ul class="pixel-list">
+            <li><strong>Format Peserta:</strong> Tim terdiri dari 2 orang.</li>
+            <li><strong>Platform &amp; Infrastruktur:</strong>
+              <ul style="list-style: square; padding-left: 20px; margin-top: 4px;">
+                <li>Google BigQuery (peserta diinvite dataset), cuman butuh BigQuery Studio saja, tidak perlu model AI, tidak perlu pipeline, dll.</li>
+                <li>Looker Studio (menggunakan akun personal peserta untuk visualisasi hasil insight).</li>
+              </ul>
+            </li>
+            <li><strong>Dataset &amp; Skenario:</strong>
+              <ul style="list-style: square; padding-left: 20px; margin-top: 4px;">
+                <li>Dataset: <a href="https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset&amp;filter=price:free" target="_blank" style="color: var(--df-google-blue); font-weight: bold;">Google Cloud Marketplace Free Datasets</a></li>
+                <li>Monitoring Google Cloud Logging digunakan juri untuk melihat eksekusi query apa saja yang telah dijalankan (dinilai dari efisiensi query, ukuran data yang diproses, dan durasi eksekusi).</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3 class="subsection-title">Setup Akses Peserta:</h3>
+          <ul class="pixel-list">
+            <li><strong>Google Group IAM:</strong> Panitia membuat 1 Google Group yang berisi seluruh alamat email akun Google peserta.</li>
+            <li><strong>Direct Access:</strong> Google Group tersebut diberikan role <em>'BigQuery Data Viewer'</em> dan <em>'BigQuery Job User'</em> pada GCP Project event.</li>
+            <li><strong>No Setup Needed:</strong> Peserta cukup login menggunakan akun Google masing-masing dan langsung menjalankan query SQL di BigQuery Console tanpa perlu instalasi software tambahan.</li>
+          </ul>
+
+          <h3 class="subsection-title">Metrik Performa &amp; Aturan Strict No-AI:</h3>
+          <ul class="pixel-list">
+            <li><strong>Bytes Processed:</strong> Makin kecil jumlah data yang diproses makin baik. Peserta dituntut melakukan filter, join, dan partisi secara tepat (sangat memenalti query <code>'SELECT *'</code> serampangan).</li>
+            <li><strong>Slot Time Consumed:</strong> Representasi total waktu dan biaya komputasi yang dikonsumsi oleh query SQL.</li>
+            <li><strong>Nonaktifkan Gemini:</strong> Fitur <em>'Gemini in BigQuery'</em> (smart autocomplete / query assist) dinonaktifkan di tingkat Project Settings oleh panitia.</li>
+            <li><strong>Larangan AI Eksternal:</strong> Dilarang keras menggunakan AI eksternal (ChatGPT, Claude, GitHub Copilot, Gemini Chat, dll). Peserta wajib menandatangani Pakta Integritas.</li>
+            <li><strong>Pengawasan Onsite:</strong> Pada Babak Final Onsite, peserta <strong>WAJIB</strong> melakukan share-screen selama pengerjaan di hadapan panitia dan juri.</li>
+          </ul>
+
+          <h3 class="subsection-title">Mekanisme Submission &amp; Penilaian Tarik Data:</h3>
+          <ul class="pixel-list">
+            <li><strong>Babak 1 (Kualifikasi Onsite):</strong> Seluruh tim peserta mengerjakan challenge kualifikasi.</li>
+            <li><strong>Verifikasi Panitia:</strong> Juri / panitia memantau dashboard untuk penilaian performa query serta meninjau dashboard Looker Studio yang diserahkan peserta.</li>
+            <li><strong>Babak 2 (Final Onsite):</strong> 5 Tim terbaik diundang ke Babak Final Onsite untuk mempresentasikan insight bisnis yang ditemukan dari data (durasi 5-7 menit per tim).</li>
+          </ul>
+
+          <div class="callout-box callout-yellow">
+            <div class="callout-header">🔌 Perlengkapan Wajib Peserta Tarik Data:</div>
+            <p class="body-text" style="margin-bottom: 0;">• Laptop masing-masing &amp; kabel charger.<br>• Cok sambung / Stop kontak per tim.</p>
+          </div>
+
+          <!-- Kriteria Tarik Data Table -->
+          <div class="pixel-table-wrapper">
+            <table class="pixel-table">
+              <thead>
+                <tr>
+                  <th>Kriteria Penilaian</th>
+                  <th style="width: 15%; text-align: center;">Bobot</th>
+                  <th>Indikator Penilaian</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Akurasi Hasil Query</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-blue);">30%</td>
+                  <td>Kebenaran data output terhadap skenario bisnis dan answer key panitia.</td>
+                </tr>
+                <tr>
+                  <td><strong>Efisiensi Query SQL</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-blue);">30%</td>
+                  <td>Kecilnya Bytes Processed dan Slot Time (penggunaan filter/indexing/join yang optimal).</td>
+                </tr>
+                <tr>
+                  <td><strong>Kualitas Insight Bisnis</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-blue);">30%</td>
+                  <td>Kedalaman analisis, relevansi temuan data, dan nilai strategis rekomendasi bisnis.</td>
+                </tr>
+                <tr>
+                  <td><strong>Kemampuan Presentasi</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-blue);">10%</td>
+                  <td>Kejelasan penyampaian, struktur slide, dan ketepatan menjawab pertanyaan juri.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Lomba #2 Card Container -->
+        <div class="competition-card-container" id="lomba2" style="border-left: 6px solid var(--df-google-red); scroll-margin-top: 80px;">
+          <div class="competition-header-strip">
+            <div>
+              <span class="pillar-badge badge-red">LOMBA #2 · BALAP TYPING</span>
+              <h2 class="section-title" style="color: var(--df-google-red); margin-top: 4px; margin-bottom: 4px;">
+                Lomba Balap Typing: Speed &amp; Precision Code Typing
+              </h2>
+              <p class="body-text" style="margin-bottom: 0; font-size: 0.9rem;">
+                Kompetisi adu kecepatan dan presisi mengetik bagi para developer dengan dua mode tantangan: teks umum bertema kemerdekaan dan potongan kode pemrograman nyata.
+              </p>
+            </div>
+            <span class="retro-pill" style="background: var(--df-google-red); color: #fff; padding: 4px 10px; font-size: 0.8rem;">Individu</span>
+          </div>
+
+          <ul class="pixel-list">
+            <li><strong>Format Peserta:</strong> Individual / Perorangan (Bebas membawa keyboard mechanical / keyboard sendiri).</li>
+            <li><strong>Tools &amp; Platform:</strong> Web typing GDG Medan.</li>
+          </ul>
+
+          <!-- Formula Callout -->
+          <div class="callout-box callout-red">
+            <div class="callout-header">⚡ FORMULA SKOR PENILAIAN BALAP TYPING</div>
+            <p class="body-text" style="font-family: 'Press Start 2P', monospace; font-size: 0.82rem; color: #000; background: #fff; padding: 10px; border: 2px solid #000; display: inline-block; box-shadow: 2px 2px 0px #000;">
+              Formula Skor Akhir = WPM × (Akurasi %)^2
+            </p>
+            <p class="body-text" style="margin-top: 10px;"><strong>Kenapa Akurasi Dikuadratkan?</strong> Mengetik kode butuh presisi tinggi. 1 typo saja merusak sintaks program! Akurasi diberi bobot kuadrat agar peserta tidak sekadar asal cepat.</p>
+            <p class="body-text"><strong>Contoh Perhitungan:</strong></p>
+            <ul style="list-style: square; padding-left: 20px; font-size: 0.9rem;">
+              <li><strong>Peserta A:</strong> 100 WPM, Akurasi 90% ➔ Skor = 100 × (0.90)^2 = <strong>81.00</strong></li>
+              <li><strong>Peserta B:</strong> 90 WPM, Akurasi 98% ➔ Skor = 90 × (0.98)^2 = <strong>86.44</strong> (<em>Peserta B Menang karena lebih teliti!</em>)</li>
+            </ul>
+          </div>
+
+          <h3 class="subsection-title">Mekanisme Pelaksanaan Balap Typing:</h3>
+          <ul class="pixel-list">
+            <li><strong>Kualifikasi Onsite:</strong> Seluruh peserta mengerjakan 3 stage tantangan: Stage 1 (Bahasa Indonesia), Stage 2 (English), dan Stage 3 (Code/Programming Syntax).</li>
+            <li><strong>Seleksi Top 8:</strong> 8 Peserta dengan Skor Akhir tertinggi berhak melaju ke Babak Final Onsite.</li>
+            <li><strong>Final Onsite Head-to-Head:</strong> Sistem gugur / Bracket 1v1 Head-to-Head. 2 Laptop peserta disambungkan ke OBS Studio dan ditampilkan side-by-side secara langsung di layar proyektor panggung utama. MC menghitung <em>'3-2-1-GO!'</em> dan race dimulai serentak secara live.</li>
+          </ul>
+        </div>
+
+        <!-- Lomba #3 Card Container -->
+        <div class="competition-card-container" id="lomba3" style="border-left: 6px solid var(--df-google-green); scroll-margin-top: 80px;">
+          <div class="competition-header-strip">
+            <div>
+              <span class="pillar-badge badge-green">LOMBA #3 · ESTAFET VIBESCODE</span>
+              <h2 class="section-title" style="color: var(--df-google-green); margin-top: 4px; margin-bottom: 4px;">
+                Estafet VibesCode (Prompt Relay with Google AI Studio &amp; Gemini)
+              </h2>
+              <p class="body-text" style="margin-bottom: 0; font-size: 0.9rem;">
+                Kompetisi estafet membangun aplikasi web interaktif menggunakan perintah bahasa alami (prompt engineering) dengan model AI Gemini secara bergantian dalam tim.
+              </p>
+            </div>
+            <span class="retro-pill" style="background: var(--df-google-green); color: #fff; padding: 4px 10px; font-size: 0.8rem;">Tim 4–5 Orang</span>
+          </div>
+
+          <ul class="pixel-list">
+            <li><strong>Format Peserta:</strong> Tim beranggotakan 4 hingga 5 orang.</li>
+            <li><strong>Platform Tools:</strong> Google AI Studio (Fitur <em>'Build apps'</em> berbasis model Gemini). <em>Backup:</em> Gemini Chat (gemini.google.com) + StackBlitz live preview.</li>
+            <li><strong>Ketentuan Akun:</strong> 1 Akun Google per tim (di-login bergantian pada laptop yang disediakan/di panggung).</li>
+          </ul>
+
+          <h3 class="subsection-title">Mekanisme Per Giliran (Relay Rules):</h3>
+          <ul class="pixel-list">
+            <li><strong>Brief Soal:</strong> Juri memberikan brief proyek di awal acara.</li>
+            <li><strong>Relay Tiap 1 Menit:</strong> Anggota tim bergantian mengetik prompt <strong>setiap 1 menit sekali</strong> secara estafet.</li>
+            <li><strong>Handoff Pengerjaan:</strong> Anggota berikutnya langsung melanjutkan pengerjaan dari state terakhir tanpa mengulang dari awal.</li>
+            <li><strong>Riwayat Prompt:</strong> Riwayat chat &amp; prompt history di Google AI Studio dilarang dihapus.</li>
+          </ul>
+
+          <!-- Kriteria Estafet Table -->
+          <div class="pixel-table-wrapper">
+            <table class="pixel-table">
+              <thead>
+                <tr>
+                  <th>Kriteria Penilaian</th>
+                  <th style="width: 15%; text-align: center;">Bobot</th>
+                  <th>Indikator Penilaian</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Kesesuaian Brief &amp; Fungsionalitas</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-green);">35%</td>
+                  <td>Kelengkapan fitur aplikasi sesuai requirement brief juri dan bebas bug utama.</td>
+                </tr>
+                <tr>
+                  <td><strong>Estetika &amp; Tampilan UI/UX</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-green);">25%</td>
+                  <td>Kerapian tata letak, keharmonisan warna, kelancaran responsif UI.</td>
+                </tr>
+                <tr>
+                  <td><strong>Kreativitas &amp; Prompt Engineering</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-green);">25%</td>
+                  <td>Keunikan ide fitur tambahan dan keefektifan instruksi prompt ke Gemini.</td>
+                </tr>
+                <tr>
+                  <td><strong>Kerja Sama Tim &amp; Handoff</strong></td>
+                  <td style="text-align: center; font-weight: bold; color: var(--df-google-green);">15%</td>
+                  <td>Kemulusan transisi antar anggota tim dan keutuhan arsitektur proyek.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAPTER 4: PROGRAM INKUBASI & KEGIATAN LAINNYA -->
+      <section class="chapter" id="inkubasi">
+        <h1 class="chapter-title">
+          <span class="chapter-tag" style="background: var(--df-google-yellow); color: #000;">04</span>
+          <span>PROGRAM INKUBASI &amp; RANGKAIAN ROAD TO DEVFEST<br><span style="font-size: 1.15rem; color: var(--df-google-blue);">(SEPTEMBER – NOVEMBER 2026)</span></span>
+        </h1>
+        
+        <p class="body-text">Setelah Merdeka Coding Fest bulan Agustus, rangkaian Road to DevFest Medan 2026 berlanjut dengan program akselerasi jangka menengah dan kegiatan komunitas menuju grand event di bulan November.</p>
+
+        <!-- Program Inkubasi Callout -->
+        <div class="callout-box callout-blue">
+          <div class="callout-header">🚀 1. PROGRAM INKUBASI &amp; AKSELERASI TALENTA DIGITAL</div>
+          <p class="body-text">Program inkubasi intensif yang diselenggarakan oleh GDG Medan untuk membina para developer, desainer, dan calon founder lokal dalam mengubah gagasan inovatif menjadi produk digital tervalidasi (<em>Minimum Viable Product / MVP</em>).</p>
+          <ul class="pixel-list">
+            <li><strong>Ideation &amp; Problem-Solution Fit:</strong> Penajaman masalah riil dan solusi relevan bagi ekosistem kota Medan dan nasional.</li>
+            <li><strong>Rapid MVP Prototyping (Vibecoding):</strong> Pemanfaatan AI tools &amp; Cloud Google untuk membangun working product secara cepat dan efisien.</li>
+            <li><strong>Mentorship &amp; Real User Traction:</strong> Pendampingan langsung oleh mentor industri serta validasi menggunakan data pengguna nyata (survei, metrik analitik, dan early adopters).</li>
+            <li><strong>Demo Day &amp; Pitching Final:</strong> Kesempatan unjuk gigi di hadapan dewan juri dan ekosistem startup pada perhelatan DevFest Medan 2026.</li>
+          </ul>
+        </div>
+
+        <!-- Kegiatan Lainnya Callout -->
+        <div class="callout-box callout-yellow" style="margin-top: 25px;">
+          <div class="callout-header">⚡ 2. KEGIATAN LAINNYA MENUJU DEVFEST 2026 (COMING SOON)</div>
+          <p class="body-text">Rangkaian kegiatan tambahan yang akan segera diumumkan secara bertahap:</p>
+          <ul class="pixel-list">
+            <li><strong>Technical Workshops &amp; Codelabs:</strong> Sesi hands-on Google Cloud, Gemini AI, Android, dan Web Technologies.</li>
+            <li><strong>Call for Abstract (CFA) &amp; Scientific Paper:</strong> Panggung publikasi karya ilmiah dan riset terapan teknologi.</li>
+            <li><strong>UI/UX Design &amp; Cybersecurity Challenges:</strong> Tantangan penyelesaian problem kota Medan dan uji ketangkasan cyber.</li>
+            <li><strong>Grand Event DevFest Medan 2026 (November):</strong> Puncak konferensi tahunan dengan tech talks, showcase karya, dan grand awarding seluruh kompetisi.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CHAPTER 5: REGULASI GENERAL, PAKTA INTEGRITAS -->
+      <section class="chapter" id="regulasi">
+        <h1 class="chapter-title">
+          <span class="chapter-tag" style="background: var(--df-google-blue);">05</span>
+          <span>REGULASI GENERAL, PAKTA INTEGRITAS &amp; ANTI-CHEATING POLICY</span>
+        </h1>
+        
+        <h2 class="section-title">Regulasi Penggunaan AI (AI Policy Matrix)</h2>
+        <p class="body-text">Ketentuan penggunaan teknologi AI untuk masing-masing cabang perlombaan:</p>
+
+        <!-- AI Policy Table -->
+        <div class="pixel-table-wrapper">
+          <table class="pixel-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Cabang Lomba</th>
+                <th style="width: 28%;">Kebijakan AI</th>
+                <th>Ketentuan &amp; Aturan Penegakan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tarik Data (BigQuery)</strong></td>
+                <td><span class="font-silk" style="color: var(--df-google-red); font-weight: bold; font-size: 0.92rem;">STRICTLY PROHIBITED</span></td>
+                <td>Gemini in BigQuery dinonaktifkan di GCP. Dilarang pakai ChatGPT/Copilot/AI eksternal. Wajib share-screen di final.</td>
+              </tr>
+              <tr>
+                <td><strong>Balap Typing</strong></td>
+                <td><span class="font-silk" style="color: #666; font-weight: bold; font-size: 0.92rem;">NOT APPLICABLE</span></td>
+                <td>Keterampilan fisik ngetik langsung di platform. Sistem otomatis mendeteksi paste/scripting illegal.</td>
+              </tr>
+              <tr>
+                <td><strong>Estafet VibesCode</strong></td>
+                <td><span class="font-silk" style="color: var(--df-google-green); font-weight: bold; font-size: 0.92rem;">MANDATORY</span></td>
+                <td>Wajib menggunakan Google AI Studio &amp; Gemini model. Penilaian mencakup keefektifan prompt engineering.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title">Sanksi Diskualifikasi</h2>
+        <ul class="pixel-list">
+          <li><strong>1. Plagiarisme:</strong> Tindakan plagiarisme kode, desain, atau naskah tanpa pengakuan sumber yang sah.</li>
+          <li><strong>2. Kecurangan AI:</strong> Penggunaan bot, script otomatisasi, atau tools AI pada lomba yang melarang penggunaan AI.</li>
+          <li><strong>3. Illegal Hacking:</strong> Melakukan serangan siber di luar lingkup sistem yang ditentukan panitia.</li>
+          <li><strong>4. Misconduct:</strong> Perilaku tidak sopan, pelecehan, atau ujaran kebencian antar sesama peserta maupun panitia.</li>
+        </ul>
+      </section>
+
+      <!-- Document Footer -->
+      <div class="doc-footer">
+        GDG MEDAN · ROAD TO DEVFEST 2026
+      </div>
+
+    </main>
+  </div>
+
+  <!-- MODAL: Ringkasan Kegiatan 29 Agustus -->
+  <div class="modal-overlay" id="augustModal" onclick="closeAugustModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeAugustModal()" title="Tutup Modal">X</button>
+      <div style="margin-bottom: 16px;">
+        <span class="pillar-badge badge-red">SABTU, 29 AGUSTUS 2026</span>
+        <h2 class="hero-title" style="font-size: 1.6rem; margin-top: 8px; color: var(--df-google-blue);">
+          KEGIATAN MERDEKA CODING FEST
+        </h2>
+        <p class="hero-subtitle" style="font-size: 0.95rem;">1-Day Onsite Event · HUT RI ke-81</p>
+      </div>
+
+      <div class="callout-box callout-yellow" style="margin: 15px 0;">
+        <div class="callout-header">⚡ RINGKASAN KEGIATAN 29 AGUSTUS:</div>
+        <ul class="pixel-list">
+          <li><strong>Waktu Pelaksanaan:</strong> Sabtu, 29 Agustus 2026 (Mulai 08.30 WIB).</li>
+          <li><strong>Urutan Acara:</strong> Open Registrasi ➔ Pembukaan &amp; Indonesia Raya ➔ Sambutan ➔ 3 Lomba Paralel ➔ <strong>ISHOMA &amp; Lunch Break</strong> ➔ Awarding &amp; Penutupan.</li>
+          <li><strong>3 Lomba Berjalan Paralel:</strong>
+            <ul style="list-style: square; padding-left: 20px; margin-top: 4px;">
+              <li><strong>Tarik Data:</strong> BigQuery - No AI, Tim 2 org</li>
+              <li><strong>Balap Typing:</strong> Speed &amp; Precision, Individu</li>
+              <li><strong>Estafet VibesCode:</strong> Gemini Relay, Tim 4–5 org</li>
+            </ul>
+          </li>
+          <li><strong>Konsumsi:</strong> Fasilitas <strong>Lunch Break</strong> untuk seluruh peserta.</li>
+        </ul>
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px; flex-wrap: wrap;">
+        <a href="#rundown" class="btn-pixel btn-primary" onclick="closeAugustModal()">
+          ⏱️ Lihat Rundown Lengkap
+        </a>
+        <a href="#agustus" class="btn-pixel btn-success" onclick="closeAugustModal()">
+          📋 Lihat Juknis Lomba
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Search Filter
+    function searchContent() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const chapters = document.querySelectorAll('.chapter');
+      
+      if (!input) {
+        chapters.forEach(ch => ch.style.display = 'block');
+        return;
+      }
+
+      chapters.forEach(ch => {
+        const text = ch.innerText.toLowerCase();
+        if (text.includes(input)) {
+          ch.style.display = 'block';
+        } else {
+          ch.style.display = 'none';
+        }
+      });
+    }
+
+    // Switch Parallel Zone Tab
+    function switchZone(zoneId) {
+      // Update Tab Buttons
+      const buttons = document.querySelectorAll('.zone-tab-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-zone') === zoneId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Update Panes
+      const panes = document.querySelectorAll('.zone-pane');
+      panes.forEach(pane => {
+        if (pane.id === 'pane-' + zoneId) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+    }
+
+    // August 29 Modal Controls
+    function openAugustModal() {
+      document.getElementById('augustModal').classList.add('show');
+    }
+
+    function closeAugustModal(e) {
+      if (!e || e.target.id === 'augustModal' || e.target.classList.contains('modal-close-btn') || e.target.tagName === 'A') {
+        document.getElementById('augustModal').classList.remove('show');
+      }
+    }
+
+    // Close Modals on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('augustModal').classList.remove('show');
+      }
+    });
+
+  </script>
+</body>
+</html>

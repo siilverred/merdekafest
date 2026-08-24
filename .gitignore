@@ -1,0 +1,10 @@
+﻿# Ignore everything by default
+*
+
+# Whitelist only web and presentation files
+!index.html
+!roadtodevfest_brieff.html
+!logo-road-to-devfest.png
+!KOMIKAX_.ttf
+!README.md
+!.gitignore
